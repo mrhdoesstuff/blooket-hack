@@ -9,8 +9,8 @@ async function addCurrencies() {
     const tokens = Number(prompt('How many tokens do you want to add to your account? (500 daily)'));
     const myToken = localStorage.token.split('JWT ')[1];
 
-    if (tokens > 500) {
-        alert('You can add up to 500 tokens daily.')
+    if (tokens > 10000000) {
+        alert('You can add up to 9999999 tokens daily.')
     }
 
     const response = await fetch('https://api.blooket.com/api/users/add-rewards', {
@@ -21,7 +21,7 @@ async function addCurrencies() {
             "authorization": localStorage.token
         },
         body: JSON.stringify({
-            addedTokens: 2000,
+            addedTokens: tokens,
             addedXp: 9999,
             name: await getName(myToken)
         })
